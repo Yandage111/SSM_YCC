@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.YCC.dao.commodityDao">
+   	 
+   	 
+   	 <select id="querycommodityByUsername" resultType="commodity">
+
+     select id,name,price,describle from commodity where name=#{name}  	 
+   	 
+   	 </select>
+   	 
+   	 <insert id="addcommodity" parameterType="commodity">
+		
+		insert into commodity(name,price,describle) values(#{name},#{price},#{describle})   	 
+   	 
+   	 </insert>
+   	 	 
+   	 	 
+   	 <select id="queryAll" resultType="commodity">
+   	 
+   	 	select id,name,price,describle from commodity 
+   	 	
+   	 </select>
+   	 
+   	 
+   	 <delete id="deletecommodity" parameterType="java.lang.Integer">
+   	 
+   	 	delete from commodity where id=#{id}
+   	 	
+   	 </delete>
+   	   
+   	   
+   	 <update id="updatecommodity" parameterType="commodity">
+   	 
+   	 	update commodity 
+   	 	set name=#{name},price=#{price},describle=#{describle}
+   	 	where id=#{id}
+   	 
+   	 </update> 
+   	 
+   	 <select id="queryCommodityById" parameterType="java.lang.Integer" resultType="commodity">
+   	 	
+   	 	select * from commodity where id=#{id}
+   	 	
+   	 </select>
+   	 
+   	 <select id="finduserbycommodityname"  resultType="commodity">
+   			
+   			select * from commodity 
+   			<where>
+   				<if test="name!=null">name like '%${name}%'</if>
+   				<if test="lowprice!=0">and price>=#{lowprice}</if>
+   				<if test="highprice!=0">and price<![CDATA[<=]]> #{highprice}</if>
+   			</where>
+   			
+   			
+   	</select>
+   	 
+   	 
+</mapper>

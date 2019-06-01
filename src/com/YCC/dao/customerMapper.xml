@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.YCC.dao.customerDao">
+   	 
+   	<select id="querycustomerByUsernameAndPassword" resultType="customer">
+   	 	
+   	 	select username,password,prices,id from customer where username=#{username} and password=#{password} 
+   	 	
+   	 </select>
+   	 
+   	 <insert id="addcustomer" parameterType="customer">
+		
+		insert into customer(username,password,prices) values(#{username},#{password},#{prices})   	 
+   	 
+   	 </insert>
+   	 
+   	 <select id="queryUserByUsername" resultType="customer">
+   	 	
+   	 	select * from customer where username=#{userNname}
+   	 	
+   	 </select>
+   	 
+   	 <update id="xiugaiprices" >
+   	 	update customer set prices=#{prices} where username=#{username}
+   	 	
+   	 </update>
+   	 
+   	 <select id="qurryall" resultType="customer" >
+   	 
+   	  select * from customer
+   	 </select>
+   	 
+   	 <delete id="shanchuyonghu" parameterType="java.lang.Integer">
+   	 
+   	 	delete from customer where id=#{id}
+   	 
+   	 </delete>
+   	 
+   	 <select id="queryCustomerById" parameterType="java.lang.Integer" resultType="customer">
+   	 	
+   	 	select * from customer where id=#{id}
+   	 	
+   	 </select>
+   	 
+   	 <update id="updateyonghu" parameterType="customer">
+   	 
+   	 	update customer 
+   	 	set username=#{username},password=#{password},prices=#{prices}
+   	 	where id=#{id}
+   	 
+   	 </update> 
+   	 
+</mapper>

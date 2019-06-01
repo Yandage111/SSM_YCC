@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.YCC.dao.managerDao">
+   	 
+   	<select id="querymanagerByUsernameAndPassword" resultType="manager">
+   	 	
+   	 	select UserName,RealName,age,password,sex from manager where UserName=#{UserName} and password=#{password} 
+   	 	
+   	 </select>
+   	 
+   	 <insert id="addmanager" parameterType="manager">
+		
+		insert into manager(UserName,RealName,age,password,sex) values(#{UserName},#{RealName},#{age},#{password},#{sex})   	 
+   	 
+   	 </insert>
+   	 
+   	 <select id="queryUserByUsername" resultType="manager">
+   	 	
+   	 	select * from manager where UserName=#{UserName}
+   	 	
+   	 </select>
+   	 
+   	 
+   	 
+</mapper>
