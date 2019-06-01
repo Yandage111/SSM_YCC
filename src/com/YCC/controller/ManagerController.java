@@ -32,6 +32,7 @@ public class ManagerController {
     private CustomerService cusservice;
 
 //1234
+//1234
     @InitBinder
     public void initBinder(WebDataBinder binder) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
