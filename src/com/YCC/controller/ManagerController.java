@@ -1,6 +1,6 @@
 package com.YCC.controller;
 
-//这是测试 冲突
+//这是测试 冲突02
 import com.YCC.entity.commodity;
 import com.YCC.entity.customer;
 import com.YCC.entity.manager;
